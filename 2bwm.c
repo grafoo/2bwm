@@ -2391,10 +2391,21 @@ changescreen(const Arg *arg)
 	if (NULL == focuswin || NULL == focuswin->monitor)
 		return;
 
-	if (arg->i == TWOBWM_NEXT_SCREEN)
-		item = focuswin->monitor->item->next;
-	else
-		item = focuswin->monitor->item->prev;
+  switch(arg->i) {
+  case TWOBWM_CYCLE_SCREENS:
+    if(focuswin->monitor->item->next == NULL) {
+      item = focuswin->monitor->item->prev;
+    } else {
+      item = focuswin->monitor->item->next;
+    }
+    break;
+  case TWOBWM_NEXT_SCREEN:
+    item = focuswin->monitor->item->next;
+    break;
+  case TWOBWM_PREVIOUS_SCREEN:
+    item = focuswin->monitor->item->prev;
+    break;
+  }
 
 	if (NULL == item)
 		return;

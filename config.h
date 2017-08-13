@@ -119,7 +119,8 @@ static key keys[] = {
     // Bottom left:
     {  MOD ,              XK_b,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_LEFT}},
     // Bottom right:
-    {  MOD ,              XK_n,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_RIGHT}},
+    /* use mod-n to cycle screens instead */
+    /* {  MOD ,              XK_n,          teleport,          {.i=TWOBWM_TELEPORT_BOTTOM_RIGHT}}, */
     // Resize while keeping the window aspect
     {  MOD ,              XK_Home,       resizestep_aspect, {.i=TWOBWM_RESIZE_KEEP_ASPECT_GROW}},
     {  MOD ,              XK_End,        resizestep_aspect, {.i=TWOBWM_RESIZE_KEEP_ASPECT_SHRINK}},
@@ -151,6 +152,7 @@ static key keys[] = {
     // Next/Previous screen
     {  MOD ,              XK_comma,      changescreen,      {.i=TWOBWM_NEXT_SCREEN}},
     {  MOD ,              XK_period,     changescreen,      {.i=TWOBWM_PREVIOUS_SCREEN}},
+    {  MOD ,              XK_n,          changescreen,      {.i=TWOBWM_CYCLE_SCREENS}},
     // Raise or lower a window
     {  MOD ,              XK_r,          raiseorlower,      {}},
     // Next/Previous workspace
