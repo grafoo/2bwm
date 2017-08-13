@@ -41,6 +41,8 @@ static const uint8_t borders[] = {3,5,5,4};
 static const char *ignore_names[] = {"bar", "xclock"};
 ///--Menus and Programs---///
 static const char *menucmd[]   = { "", NULL };
+static const char *rofi_run[]   = { "rofi", "-show", "run", NULL };
+static const char *rofi_window[]   = { "rofi", "-show", "window", NULL };
 ///--Custom foo---///
 static void halfandcentered(const Arg *arg)
 {
@@ -181,10 +183,13 @@ static key keys[] = {
     {  MOD |SHIFT,        XK_Left,       cursor_move,       {.i=TWOBWM_CURSOR_LEFT}},
     // Start programs
     {  MOD ,              XK_w,          start,             {.com = menucmd}},
+    {  MOD ,              XK_space,      start,             {.com = rofi_run}},
+    {  ALT ,              XK_space,      start,             {.com = rofi_window}},
     // Exit or restart 2bwm
     {  MOD |CONTROL,      XK_q,          twobwm_exit,       {.i=0}},
     {  MOD |CONTROL,      XK_r,          twobwm_restart,    {.i=0}},
-    {  MOD ,              XK_space,      halfandcentered,   {.i=0}},
+    /* use mod-space for rofi run instead */
+    /* {  MOD ,              XK_space,      halfandcentered,   {.i=0}}, */
     // Change current workspace
        DESKTOPCHANGE(     XK_1,                             0)
        DESKTOPCHANGE(     XK_2,                             1)
