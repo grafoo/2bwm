@@ -83,8 +83,8 @@ static void halfandcentered(const Arg *arg)
 static key keys[] = {
     /* modifier           key            function           argument */
     // Focus to next/previous window
-    {  MOD ,              XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_NEXT}},
-    {  MOD |SHIFT,        XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_PREVIOUS}},
+    {  ALT ,              XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_NEXT}},
+    {  ALT |SHIFT,        XK_Tab,        focusnext,         {.i=TWOBWM_FOCUS_PREVIOUS}},
     // Kill a window
     {  MOD ,              XK_q,          deletewin,         {}},
     // Resize a window
