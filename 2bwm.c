@@ -872,6 +872,10 @@ newwin(xcb_generic_event_t *ev)
 
 	if (!client->maxed)
 		setborders(client,true);
+
+  if (!SLOPPY_FOCUS) {
+    setfocus(client);
+  }
 }
 
 /* Set border colour, width and event mask for window. */
@@ -2899,8 +2903,10 @@ enternotify(xcb_generic_event_t *ev)
 		if (NULL == client)
 			return;
 
-		setfocus(client);
-		setborders(client,true);
+    if (SLOPPY_FOCUS) {
+      setfocus(client);
+      setborders(client,true);
+    }
 	}
 }
 
